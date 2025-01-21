@@ -52,3 +52,47 @@ console.log(coche.color); // Output: Rojo
 // 3. Utilizar métodos abreviados para funciones.
 // 4. Evitar el uso excesivo de objetos anidados para mantener la legibilidad.
 // 5. Utilizar propiedades computadas cuando sea necesario.
+
+// Ejemplo 5: Objeto literal para base de datos
+const database = {
+    users: [
+        {
+            id: 1,
+            name: "Juan Perez",
+            address: {
+                street: "123 Calle Falsa",
+                city: "Ciudad Inventada",
+                postalCode: "12345"
+            },
+            isActive: true,
+            age: 30,
+            hobbies: ["reading", "swimming", "coding"]
+        },
+        {
+            id: 2,
+            name: "Maria Gomez",
+            address: {
+                street: "456 Avenida Imaginaria",
+                city: "Pueblo Ficticio",
+                postalCode: "67890"
+            },
+            isActive: false,
+            age: 25,
+            hobbies: ["painting", "dancing", "traveling"]
+        },
+        {
+            id: 3,
+            name: "Carlos Sanchez",
+            address: {
+                street: "789 Boulevard Inventado",
+                city: "Villa Fantasia",
+                postalCode: "11223"
+            },
+            isActive: true,
+            age: 28,
+            hobbies: ["gaming", "hiking", "photography"]
+        }
+    ]
+};
+
+console.log(database);
