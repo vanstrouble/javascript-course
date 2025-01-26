@@ -1,77 +1,77 @@
 // Ejemplo básico de if-else
-let edad = 18;
+let age = 18;
 
-if (edad >= 18) {
+if (age >= 18) {
     console.log("Eres mayor de edad.");
 } else {
     console.log("Eres menor de edad.");
 }
 
 // Ejemplo de if-else if-else
-let nota = 85;
+let grade = 85;
 
-if (nota >= 90) {
+if (grade >= 90) {
     console.log("Tienes una A.");
-} else if (nota >= 80) {
+} else if (grade >= 80) {
     console.log("Tienes una B.");
-} else if (nota >= 70) {
+} else if (grade >= 70) {
     console.log("Tienes una C.");
-} else if (nota >= 60) {
+} else if (grade >= 60) {
     console.log("Tienes una D.");
 } else {
     console.log("Tienes una F.");
 }
 
 // Uso de operador ternario
-let esMayor = edad >= 18 ? "Sí, es mayor de edad." : "No, es menor de edad.";
-console.log(esMayor);
+let isAdult = age >= 18 ? "Sí, es mayor de edad." : "No, es menor de edad.";
+console.log(isAdult);
 
 // Uso de switch como alternativa a múltiples if-else
-let dia = 3;
-let nombreDia;
+let day = 3;
+let dayName;
 
-switch (dia) {
+switch (day) {
     case 1:
-        nombreDia = "Lunes";
+        dayName = "Lunes";
         break;
     case 2:
-        nombreDia = "Martes";
+        dayName = "Martes";
         break;
     case 3:
-        nombreDia = "Miércoles";
+        dayName = "Miércoles";
         break;
     case 4:
-        nombreDia = "Jueves";
+        dayName = "Jueves";
         break;
     case 5:
-        nombreDia = "Viernes";
+        dayName = "Viernes";
         break;
     case 6:
-        nombreDia = "Sábado";
+        dayName = "Sábado";
         break;
     case 7:
-        nombreDia = "Domingo";
+        dayName = "Domingo";
         break;
     default:
-        nombreDia = "Día no válido";
+        dayName = "Día no válido";
 }
 
-console.log(nombreDia);
+console.log(dayName);
 
 // Buenas prácticas y pro tips
 // 1. Mantén las condiciones simples y legibles.
-let temperatura = 30;
-if (temperatura > 0 && temperatura < 100) {
+let temperature = 30;
+if (temperature > 0 && temperature < 100) {
     console.log("La temperatura está en un rango aceptable.");
 }
 
 // 2. Evita el uso excesivo de if-else anidados.
-let usuario = {
-    rol: "admin"
+let user = {
+    role: "admin"
 };
 
-if (usuario) {
-    if (usuario.rol === "admin") {
+if (user) {
+    if (user.role === "admin") {
         console.log("Acceso concedido.");
     } else {
         console.log("Acceso denegado.");
@@ -81,13 +81,13 @@ if (usuario) {
 }
 
 // 3. Usa el operador ternario para condiciones simples.
-let mensaje = usuario ? (usuario.rol === "admin" ? "Acceso concedido." : "Acceso denegado.") : "Usuario no encontrado.";
-console.log(mensaje);
+let message = user ? (user.role === "admin" ? "Acceso concedido." : "Acceso denegado.") : "Usuario no encontrado.";
+console.log(message);
 
 // 4. Considera el uso de switch para múltiples condiciones.
-let fruta = "manzana";
+let fruit = "manzana";
 
-switch (fruta) {
+switch (fruit) {
     case "manzana":
         console.log("Es una manzana.");
         break;
