@@ -32,4 +32,17 @@
  *    const hora = 14;
  *    const saludo = (hora < 12) ? 'Buenos días' : (hora < 18) ? 'Buenas tardes' : 'Buenas noches';
  */
-condición ? expresiónSiVerdadero : expresiónSiFalso;
+
+const day = Math.floor(Math.random() * 7);
+const hour = Math.floor(Math.random() * 24);
+console.log(`Day number: ${day} and hour: ${hour}`);
+
+// if ([0, 6].includes(day)) {
+//     console.log("It's the weekend.");
+// } else if (hour >= 9 && hour < 18) {
+//     console.log("It's open and working.");
+// } else {
+//     console.log("It's closed.");
+// }
+
+console.log([0, 6].includes(day) ? "It's the weekend." : (hour >= 9 && hour < 18) ? "It's open and working." : "It's closed.");
