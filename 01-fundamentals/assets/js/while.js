@@ -1,4 +1,4 @@
-const prompt = require('prompt-sync')(); // Necesitarás instalar el paquete prompt-sync
+// const prompt = require('prompt-sync')(); // Necesitarás instalar el paquete prompt-sync
 
 // while.js
 
@@ -26,13 +26,13 @@ do {
 // Ejemplo avanzado: Leer números del usuario hasta que ingrese un número negativo.
 
 
-let input;
-console.log("\nEjemplo avanzado: Leer números del usuario hasta que ingrese un número negativo:");
-do {
-    input = parseInt(prompt("Ingresa un número (negativo para salir): "), 10);
-    if (input >= 0) {
-        console.log(`Ingresaste: ${input}`);
-    }
-} while (input >= 0);
+// let input;
+// console.log("\nEjemplo avanzado: Leer números del usuario hasta que ingrese un número negativo:");
+// do {
+//     input = parseInt(prompt("Ingresa un número (negativo para salir): "), 10);
+//     if (input >= 0) {
+//         console.log(`Ingresaste: ${input}`);
+//     }
+// } while (input >= 0);
 
-console.log("Has salido del bucle.");
+// console.log("Has salido del bucle.");
