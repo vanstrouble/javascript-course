@@ -1,6 +1,8 @@
 import "./style.css";
 import javascriptLogo from "./javascript.svg";
 // import { environmentComponent } from "./concepts/01-enviroments";
+// import { callbacksComponent } from "./concepts/02-callbacks";
+import { promisesComponent } from "./concepts/03-promises";
 import { callbacksComponent } from "./concepts/02-callbacks";
 
 document.querySelector("#app").innerHTML = `
@@ -14,4 +16,4 @@ document.querySelector("#app").innerHTML = `
     </div>
 `;
 
-callbacksComponent(document.querySelector(".card"));
+promisesComponent(document.querySelector(".card"));
