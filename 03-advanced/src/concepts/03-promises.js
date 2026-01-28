@@ -29,7 +29,7 @@ export const promisesComponent = (element) => {
     const id1 = '5d86371fd55e2e2a30fe1ccb2';
     const id2 = '5d86371f25a058e5b1c8a65e';
 
-    // Promise chaining
+    //! Promise chaining
     // findHeroByID(id1)
     //     .then( (hero1) => {
 
@@ -42,17 +42,23 @@ export const promisesComponent = (element) => {
     //     .catch( renderError );
 
 
-    // Promise chaining version 2
-    let hero1;
-    findHeroByID(id1)
-        .then( hero  => {
-            hero1 = hero;
-            return findHeroByID(id2);
-        }).then( hero  => {
-            render2Hero( hero1, hero );
+    //! Promise chaining version 2
+    // let hero1;
+    // findHeroByID(id1)
+    //     .then( hero  => {
+    //         hero1 = hero;
+    //         return findHeroByID(id2);
+    //     }).then( hero  => {
+    //         render2Hero( hero1, hero );
+    //     })
+    //     .catch( renderError );
+
+    //! Promise.all
+    Promise.all( [ findHeroByID(id1), findHeroByID(id2) ] )
+        .then( ([hero1, hero2]) => {
+            render2Hero( hero1, hero2 );
         })
         .catch( renderError );
-
 };
 
 /**
