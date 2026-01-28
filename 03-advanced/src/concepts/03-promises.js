@@ -29,16 +29,30 @@ export const promisesComponent = (element) => {
     const id1 = '5d86371fd55e2e2a30fe1ccb2';
     const id2 = '5d86371f25a058e5b1c8a65e';
 
-    findHeroByID(id1)
-        .then( (hero1) => {
+    // Promise chaining
+    // findHeroByID(id1)
+    //     .then( (hero1) => {
 
-            findHeroByID(id2)
-                .then( hero2 => {
-                    render2Hero( hero1, hero2 );
-                })
-                .catch( renderError );
+    //         findHeroByID(id2)
+    //             .then( hero2 => {
+    //                 render2Hero( hero1, hero2 );
+    //             })
+    //             .catch( renderError );
+    //     })
+    //     .catch( renderError );
+
+
+    // Promise chaining version 2
+    let hero1;
+    findHeroByID(id1)
+        .then( hero  => {
+            hero1 = hero;
+            return findHeroByID(id2);
+        }).then( hero  => {
+            render2Hero( hero1, hero );
         })
         .catch( renderError );
+
 };
 
 /**
