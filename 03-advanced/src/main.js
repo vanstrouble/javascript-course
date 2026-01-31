@@ -2,8 +2,9 @@ import "./style.css";
 import javascriptLogo from "./javascript.svg";
 // import { environmentComponent } from "./concepts/01-enviroments";
 // import { callbacksComponent } from "./concepts/02-callbacks";
-import { promisesComponent } from "./concepts/03-promises";
-import { callbacksComponent } from "./concepts/02-callbacks";
+// import { promisesComponent } from "./concepts/03-promises";
+// import { callbacksComponent } from "./concepts/02-callbacks";
+import { promiseRaceComponent } from "./concepts/04-promise-race";
 
 document.querySelector("#app").innerHTML = `
     <div>
@@ -16,4 +17,4 @@ document.querySelector("#app").innerHTML = `
     </div>
 `;
 
-promisesComponent(document.querySelector(".card"));
+promiseRaceComponent(document.querySelector(".card"));
