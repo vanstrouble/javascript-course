@@ -4,7 +4,8 @@ import javascriptLogo from "./javascript.svg";
 // import { callbacksComponent } from "./concepts/02-callbacks";
 // import { promisesComponent } from "./concepts/03-promises";
 // import { callbacksComponent } from "./concepts/02-callbacks";
-import { promiseRaceComponent } from "./concepts/04-promise-race";
+// import { promiseRaceComponent } from "./concepts/04-promise-race";
+import { asyncComponent } from "./concepts/05-async";
 
 document.querySelector("#app").innerHTML = `
     <div>
@@ -17,4 +18,5 @@ document.querySelector("#app").innerHTML = `
     </div>
 `;
 
-promiseRaceComponent(document.querySelector(".card"));
+// promiseRaceComponent(document.querySelector(".card"));
+asyncComponent(document.querySelector(".card"));
