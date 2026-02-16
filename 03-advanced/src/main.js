@@ -9,7 +9,8 @@ import javascriptLogo from "./javascript.svg";
 // import { asyncAwaitComponent } from "./concepts/06-async-await";
 // import { asyncAwait2Component } from "./concepts/07-async-await";
 // import { forAwaitComponent } from "./concepts/08-for-await";
-import { generatorFunctionsComponent } from "./concepts/09-generators";
+// import { generatorFunctionsComponent } from "./concepts/09-generators";
+import { asyncGeneratorFunctions } from "./concepts/10-async-generator";
 
 document.querySelector("#app").innerHTML = `
     <div>
@@ -27,4 +28,5 @@ document.querySelector("#app").innerHTML = `
 // asyncAwaitComponent(document.querySelector(".card"));
 // asyncAwait2Component(document.querySelector(".card"));
 // forAwaitComponent(document.querySelector(".card"));
-generatorFunctionsComponent(document.querySelector(".card"));
+// generatorFunctionsComponent(document.querySelector(".card"));
+asyncGeneratorFunctions(document.querySelector(".card"));
