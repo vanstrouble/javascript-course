@@ -8,7 +8,8 @@ import javascriptLogo from "./javascript.svg";
 // import { asyncComponent } from "./concepts/05-async";
 // import { asyncAwaitComponent } from "./concepts/06-async-await";
 // import { asyncAwait2Component } from "./concepts/07-async-await";
-import { forAwaitComponent } from "./concepts/08-for-await";
+// import { forAwaitComponent } from "./concepts/08-for-await";
+import { generatorFunctionsComponent } from "./concepts/09-generators";
 
 document.querySelector("#app").innerHTML = `
     <div>
@@ -25,4 +26,5 @@ document.querySelector("#app").innerHTML = `
 // asyncComponent(document.querySelector(".card"));
 // asyncAwaitComponent(document.querySelector(".card"));
 // asyncAwait2Component(document.querySelector(".card"));
-forAwaitComponent(document.querySelector(".card"));
+// forAwaitComponent(document.querySelector(".card"));
+generatorFunctionsComponent(document.querySelector(".card"));
