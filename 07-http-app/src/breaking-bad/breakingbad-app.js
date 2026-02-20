@@ -16,23 +16,18 @@ export const BreakingBadApp = (element) => {
         <p>Loading…</p>
     `;
 
-	fetchQuote()
-		.then((quote) => {
-			if (quote && quote.quote && quote.author) {
-				element.innerHTML = `
-                <p>${quote.quote}</p>
-                <p><em>- ${quote.author}</em></p>
-            `;
-			} else {
-				element.innerHTML = `
-                <p>No quote found. Please try again.</p>
-            `;
-			}
-		})
-		.catch((error) => {
-			console.error("Error fetching quote", error);
-			element.innerHTML = `
-            <p>Failed to fetch quote. Please try again later.</p>
-        `;
-		});
+    const quoteLabel = document.createElement("blockquote");
+    const authorLabel = document.createElement("h3");
+    const nextQuoteBtn = document.createElement("button");
+
+    nextQuoteBtn.textContent = "Next Quote";
+
+    const renderQuote = (data) => {
+        quoteLabel.textContent = data.quote;
+        authorLabel.textContent = `- ${data.author}`;
+        element.replaceChildren(quoteLabel, authorLabel, nextQuoteBtn);
+    }
+
+    fetchQuote().then(renderQuote);
+
 };
