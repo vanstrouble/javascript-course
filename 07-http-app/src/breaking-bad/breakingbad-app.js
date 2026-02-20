@@ -26,7 +26,19 @@ export const BreakingBadApp = (element) => {
         quoteLabel.textContent = data.quote;
         authorLabel.textContent = `- ${data.author}`;
         element.replaceChildren(quoteLabel, authorLabel, nextQuoteBtn);
-    }
+    };
+
+    nextQuoteBtn.addEventListener("click", async () => {
+        quoteLabel.textContent = "Loading…";
+        authorLabel.textContent = "";
+        try {
+            const data = await fetchQuote();
+            renderQuote(data);
+        } catch (error) {
+            quoteLabel.textContent = "Error fetching quote.";
+            authorLabel.textContent = "";
+        }
+    });
 
     fetchQuote().then(renderQuote);
 

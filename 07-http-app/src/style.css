@@ -49,10 +49,10 @@ h1 {
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em #256029cc) hue-rotate(70deg) saturate(1.4) brightness(1.05);
 }
 .logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
+  filter: drop-shadow(0 0 2em #388e3cbb) hue-rotate(70deg) saturate(1.2) brightness(1.02);
 }
 
 .card {
@@ -65,32 +65,39 @@ h1 {
 
 button {
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 2px solid #274e13;
   padding: 0.6em 1.2em;
   font-size: 1em;
-  font-weight: 500;
+  font-weight: 600;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #388e3c;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(39, 78, 19, 0.18);
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: background 0.25s, border-color 0.25s, box-shadow 0.25s;
+  letter-spacing: 1px;
 }
 button:hover {
-  border-color: #646cff;
+  background-color: #256029;
+  border-color: #388e3c;
+  box-shadow: 0 4px 16px rgba(39, 78, 19, 0.28);
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 4px auto #388e3c;
 }
 
 @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+  .logo {
+    height: 12em;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms, box-shadow 300ms;
+    filter: hue-rotate(70deg) saturate(1.2) brightness(0.95) drop-shadow(0 0 1.5em #388e3c88);
+    box-shadow: 0 0 0.5em #388e3c55, 0 2px 16px #274e1322;
   }
-  a:hover {
-    color: #747bff;
+    .logo:hover {
+      filter: hue-rotate(70deg) saturate(1.4) brightness(1.05) drop-shadow(0 0 2.5em #256029cc);
+      box-shadow: 0 0 2em #25602988, 0 4px 24px #274e1344;
+    }
   }
-  button {
-    background-color: #f9f9f9;
-  }
-}
