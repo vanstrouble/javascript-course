@@ -3,17 +3,29 @@ import { loadUsersByPage } from "../usecases/load-users-by-page";
 const state = {
     currentPage: 0,
     users: [],
+    totalPages: 0,
 }
 
 const loadNextPage = async () => {
-    const users = await loadUsersByPage(state.currentPage + 1);
-    if (users.length === 0) return;
+    if (state.totalPages > 0 && state.currentPage >= state.totalPages) return false;
+
+    const result = await loadUsersByPage(state.currentPage + 1);
     state.currentPage += 1;
-    state.users = users;
+    state.users = result.users;
+    state.totalPages = result.totalPages;
+
+    return true;
 }
 
 const loadPrevPage = async () => {
-    throw new Error('Not implemented')
+    if (state.currentPage <= 1) return false;
+
+    const result = await loadUsersByPage(state.currentPage - 1);
+    state.currentPage -= 1;
+    state.users = result.users;
+    state.totalPages = result.totalPages;
+
+    return true;
 }
 
 const onUserChanged = (user) => {
@@ -32,4 +44,5 @@ export default {
     state,
     getUsers: () => [...state.users],
     getCurrentPage: () => state.currentPage,
+    getTotalPages: () => state.totalPages,
 }
