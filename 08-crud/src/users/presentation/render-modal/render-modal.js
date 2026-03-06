@@ -37,8 +37,35 @@ export const renderModal = (element) => {
     // Handle form submission
     form.addEventListener('submit', (event) => {
         event.preventDefault();
-        // TODO: Handle form data
-        console.log('Form submitted');
-        hideModal();
+
+        try {
+            const userData = validateAndExtractFormData(new FormData(form));
+            console.log('User data:', userData);
+            // TODO: Save user data
+            hideModal();
+        } catch (error) {
+            alert(error.message);
+        }
     });
+};
+
+const validateAndExtractFormData = (formData) => {
+    const firstName = formData.get('firstName')?.trim();
+    if (!firstName) throw new Error('First Name cannot be empty.');
+
+    const lastName = formData.get('lastName')?.trim();
+    if (!lastName) throw new Error('Last Name cannot be empty.');
+
+    const balance = formData.get('balance')?.trim();
+    if (!balance) throw new Error('Balance cannot be empty.');
+
+    const balanceNumber = Number(balance);
+    if (isNaN(balanceNumber)) throw new Error('Balance must be a valid number.');
+
+    return {
+        firstName,
+        lastName,
+        balance: balanceNumber,
+        isActive: formData.has('isActive')
+    };
 };
