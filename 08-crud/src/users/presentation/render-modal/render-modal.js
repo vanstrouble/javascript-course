@@ -16,7 +16,7 @@ export const hideModal = () => {
     form?.reset();
 };
 
-export const renderModal = (element) => {
+export const renderModal = (element, callback) => {
     if (modal) return;
 
     modal = document.createElement('div');
@@ -35,13 +35,15 @@ export const renderModal = (element) => {
     });
 
     // Handle form submission
-    form.addEventListener('submit', (event) => {
+    form.addEventListener('submit', async(event) => {
         event.preventDefault();
 
         try {
             const userData = validateAndExtractFormData(new FormData(form));
             console.log('User data:', userData);
-            // TODO: Save user data
+
+            await callback(userData);
+
             hideModal();
         } catch (error) {
             alert(error.message);
