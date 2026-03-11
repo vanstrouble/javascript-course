@@ -27,6 +27,7 @@ export const hideModal = () => {
 const populateForm = (user) => {
     if (!form) return;
 
+    form.querySelector('input[name="id"]').value = user.id || '';
     form.querySelector('input[name="firstName"]').value = user.firstName || '';
     form.querySelector('input[name="lastName"]').value = user.lastName || '';
     form.querySelector('input[name="balance"]').value = user.balance || 0;
@@ -69,6 +70,7 @@ export const renderModal = (element, callback) => {
 };
 
 const validateAndExtractFormData = (formData) => {
+    const id = formData.get('id')?.trim();
     const firstName = formData.get('firstName')?.trim();
     if (!firstName) throw new Error('First Name cannot be empty.');
 
@@ -81,10 +83,17 @@ const validateAndExtractFormData = (formData) => {
     const balanceNumber = Number(balance);
     if (isNaN(balanceNumber)) throw new Error('Balance must be a valid number.');
 
-    return {
+    const userData = {
         firstName,
         lastName,
         balance: balanceNumber,
         isActive: formData.has('isActive')
     };
+
+    // Only include id if it exists (for updates)
+    if (id) {
+        userData.id = id;
+    }
+
+    return userData;
 };

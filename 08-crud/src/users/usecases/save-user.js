@@ -1,16 +1,18 @@
 import { User } from "../models/user.js";
 import { userModelToLocalhost } from "../mappers/user-to-localhost.mapper.js";
+import { localhostUserToModel } from "../mappers/localhost-user.mapper.js";
 
 export const saveUser = async (userLike) => {
     const user = new User(userLike);
-
     const userToSave = userModelToLocalhost(user);
-    if (user.id) {
-        throw new Error('Updating users is not implemented yet.');
-    }
 
-    const updatedUser = await createUser(userToSave);
-    return updatedUser;
+    let userUpdated;
+    if (userToSave.id != null) {
+        userUpdated = await updateUser(userToSave);
+    } else {
+        userUpdated = await createUser(userToSave);
+    }
+    return localhostUserToModel( userUpdated );
 };
 
 const createUser = async (user) => {
