@@ -36,11 +36,16 @@ const reloadPage = async () => {
     throw new Error('Not implemented')
 }
 
+const getUserById = (id) => {
+    return state.users.find(user => user.id === id);
+}
+
 export default {
     loadNextPage,
     loadPrevPage,
     onUserChanged,
     reloadPage,
+    getUserById,
     state,
     getUsers: () => [...state.users],
     getCurrentPage: () => state.currentPage,

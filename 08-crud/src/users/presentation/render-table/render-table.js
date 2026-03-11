@@ -1,4 +1,5 @@
 import usersStore from "../../store/users-store";
+import { showModal } from "../render-modal/render-modal.js";
 import "./render-table.css";
 
 let table;
@@ -26,7 +27,15 @@ export const renderTable = (element) => {
     if (!table) {
         table = createTable();
         element.appendChild(table);
-        // TODO: add event listener to table for delete and edit actions
+
+        // Add event listener for edit and delete actions
+        table.addEventListener('click', (event) => {
+            if (event.target.matches('.edit-btn')) {
+                handleEditUser(event);
+            } else if (event.target.matches('.delete-btn')) {
+                handleDeleteUser(event);
+            }
+        });
     }
 
     let tableHTML = '';
@@ -48,4 +57,26 @@ export const renderTable = (element) => {
     });
 
     table.querySelector('tbody').innerHTML = tableHTML;
+}
+
+const handleEditUser = (event) => {
+    event.preventDefault();
+    const userId = event.target.getAttribute('data-id');
+    const user = usersStore.getUserById(userId);
+
+    if (user) {
+        showModal(user);
+    } else {
+        alert('User not found');
+    }
+}
+
+const handleDeleteUser = (event) => {
+    event.preventDefault();
+    const userId = event.target.getAttribute('data-id');
+
+    if (confirm('Are you sure you want to delete this user?')) {
+        // TODO: Implement delete functionality
+        console.log('Delete user:', userId);
+    }
 }

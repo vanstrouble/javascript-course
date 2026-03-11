@@ -3,10 +3,18 @@ import modalHTML from './render-modal.html?raw';
 
 let modal, form;
 
-export const showModal = () => {
+export const showModal = (user = null) => {
     if (!modal) {
         throw new Error('Modal not initialized. Call renderModal first.');
     }
+
+    // If a user is provided, popular the form
+    if (user) {
+        populateForm(user);
+    } else {
+        form?.reset();
+    }
+
     modal.classList.remove('hidden-modal');
 };
 
@@ -14,6 +22,15 @@ export const hideModal = () => {
     if (!modal) return;
     modal.classList.add('hidden-modal');
     form?.reset();
+};
+
+const populateForm = (user) => {
+    if (!form) return;
+
+    form.querySelector('input[name="firstName"]').value = user.firstName || '';
+    form.querySelector('input[name="lastName"]').value = user.lastName || '';
+    form.querySelector('input[name="balance"]').value = user.balance || 0;
+    form.querySelector('input[name="isActive"]').checked = user.isActive || false;
 };
 
 export const renderModal = (element, callback) => {
