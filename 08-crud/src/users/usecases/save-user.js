@@ -26,3 +26,17 @@ const createUser = async (user) => {
     console.log({ newUser });
     return newUser;
 }
+
+const updateUser = async (user) => {
+    const url = `${import.meta.env.VITE_BASE_URL}/users/${user.id}`;
+    const response = await fetch(url, {
+        method: 'PATCH',
+        body: JSON.stringify(user),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    const updatedUser = await response.json();
+    console.log({ updatedUser });
+    return updatedUser;
+}
