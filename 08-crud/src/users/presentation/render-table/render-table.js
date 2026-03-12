@@ -1,5 +1,6 @@
 import usersStore from "../../store/users-store";
 import { showModal } from "../render-modal/render-modal.js";
+import { deleteUserById } from "../../usecases/delete-user-by-id.js";
 import "./render-table.css";
 
 let table;
@@ -71,12 +72,18 @@ const handleEditUser = (event) => {
     }
 }
 
-const handleDeleteUser = (event) => {
+const handleDeleteUser = async (event) => {
     event.preventDefault();
     const userId = event.target.getAttribute('data-id');
 
     if (confirm('Are you sure you want to delete this user?')) {
-        // TODO: Implement delete functionality
-        console.log('Delete user:', userId);
+        try {
+            await deleteUserById(userId);
+            await usersStore.reloadPage();
+            renderTable(document.querySelector('#app'));
+        } catch (error) {
+            console.error('Error deleting user:', error);
+            alert('Failed to delete user. Please try again.');
+        }
     }
 }
